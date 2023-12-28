@@ -1,0 +1,21 @@
+./nd-installer setup ./examples/nd-linux-input.yaml skip-os-version-check // chấp nhận version 8.4 và 8.6
+yum install skopeo
+rm /etc/fstab
+stop firewalld
+./nd-installer setup ./examples/nd-linux-input.yaml skip-ntp-check // đồng bộ hoá thời gian 
+
+Step1: Tải Cisco Nexus Dashboard
+https://www.cisco.com/c/en/us/support/data-center-analytics/nexus-dashboard/series.html
+
+Step2: Giải nén file vừa tải
+tar -xvf nd-rhel-<version>.tar
+
+Step3: Chỉnh sửa cấu hình file .yaml
+./nd-linux/examples/nd-linux-input.yaml
+Đổi ip + user + tên card mạng
+
+Step4: Cài đặt Nexus Dashboard
+cd nd-linux
+./nd-installer setup ./examples/nd-linux-input.yaml
+
+Step5: Truy cập https://<first-node-mgmt-ip>
