@@ -1,0 +1,30 @@
+# Node Definition
+# 'Master' / 'Worker' / 'Standby'. Only Master supported in 2.2
+nodeRole: Master
+# 'true' for one of the masters in a cluster
+firstMaster: true
+clusterName: dcnm-sanity-15
+
+# Block devices. Full volumes only. Will be wiped. Should meet profile requirements.
+blkdev:
+  - type: SSD
+    name: "/dev/sdc"
+  - type: SSD
+    name: "/dev/sdb"
+# Networking
+# ND needs exclusively 2 interfaces. Has to be separate from the linux management interface.
+oobNetwork:
+  uplinks:
+    - ens912
+    - ens924
+  ipNet: 192.168.x.x/24
+  gatewayIP: 192.168.x.1
+
+# Just the interface for the inbandNetwork, rest can be provided at ND bootstrap UI
+inbandNetwork:
+  uplinks:
+    - ens956
+#Installation Profile. Default / Large. Large is used for NDFC SAN installations
+installProfile: Default
+#Linux username. Cannot be root. Only this user will have privileges to execute certain ND diag commands.
+serviceUser: nduser
