@@ -1,7 +1,12 @@
-./nd-installer setup ./examples/nd-linux-input.yaml skip-os-version-check // chấp nhận version 8.4 và 8.6
+Cài đặt trước khi cấu hình
+./nd-installer setup ./examples/nd-linux-input.yaml skip-os-version-check // chấp nhận version 8.4 và 8.6, gõ lệnh nếu os không phù hợp
+
 yum install skopeo
+
 rm /etc/fstab
+
 stop firewalld
+
 ./nd-installer setup ./examples/nd-linux-input.yaml skip-ntp-check // đồng bộ hoá thời gian 
 
 Step1: Tải Cisco Nexus Dashboard
